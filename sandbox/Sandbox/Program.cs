@@ -227,7 +227,7 @@ class Program
         // Functions in C sharp
 
         // The general structure of a function definition in C# is:
-        
+
         // ReturnTypeEncoder FunctionName(dataType parameter1, dataType parameter2)
         // {
         //      // function_body
@@ -347,8 +347,65 @@ class Program
 
         // Pass By Reference
 
-        
+        // Class Diagram
 
+        //                 object: Person
+
+        // Responsibility:
+        // - to hold and display identifying information
+
+        // Behaviors:
+        // - show Eastern name
+        // - show Western name
+
+        // State:
+        // - given name
+        // - family name
+
+        // Once we have a class diagram, we have enough detail to begin to implement the class in 
+        // code. The following is an example of the Person translated to a class in code. Be sure to 
+        // read all of the comments and code carefully.
+
+        // a code template for the category of things known as a Person. The
+        // responsibility of a Person is to hold and display personal information.
+        // public class Person
+        // {
+                // The C# convention is to start member variables with an underscore_
+                // public string _givenName = "";
+                // public string _familyName = "";
+
+                // A special method, called a constructor that is onvoked using the
+                // new keyword folloed by the class name and parentheses.
+                // public Person()
+                // {
+                // }
+
+                // A method that displays the person's full name as used in eastern 
+                // countries or <family name, given name>.
+                // public void ShowEasternName()
+                // {
+                //     Console.WriteLine($"{_familyName}, {_givenName}");
+                // }
+
+                // // A method that displays the person's full name as used in western 
+                // // countries or <given name family name>.
+                // public void ShowWesternName()
+                // {
+                //     Console.WriteLine($"{_givenName} {_familyName}");
+                // }
+            
+        // }
+
+        // A class diagram can be made in any text editor in this format:
+
+        // Class: Person
+        // Attributes:
+        // * _givenName : string
+        // * _familyName : string
+
+        // Behaviors:
+        // * ShowEasternName() : void
+        // * ShowWesternName() : void
 
 
      }
