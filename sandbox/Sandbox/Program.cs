@@ -1,6 +1,9 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
@@ -221,32 +224,132 @@ class Program
         //     Console.WriteLine(words[i]);
         // }
 
-        // Console.WriteLine("Hello Prep4 World!");
+        // Functions in C sharp
 
-        // List<int> numbers = new List<int>();
-
-        // Console.WriteLine("Enter a list of numbers, then type 0 when finished.");
-        // int number = -1;
-
-
-        // while (number != 0)
+        // The general structure of a function definition in C# is:
+        
+        // ReturnTypeEncoder FunctionName(dataType parameter1, dataType parameter2)
         // {
-        //     Console.Write("Enter Number: ");
-        //     number = int.Parse(Console.ReadLine());
-        //     numbers.Add(number);
+        //      // function_body
         // }
 
-        // int sum = 0;
-        // foreach (int lNumber in numbers)
+        // Here is an example of a function that does not parameters or a return type (hence the
+        // use of void):
+
+        // void DisplayMessage()
         // {
-        //     Console.WriteLine(lNumber);
-        //     sum += lNumber;
+        //      Console.WriteLine("Hello World!");
         // }
 
-        // Console.WriteLine(sum);
+        // The next example shows a function that accepts a single string parameter:
 
+        // void DisplayPersonalMessage(string userName)
+        // {
+        //     Console.WriteLine($"Hello {userName}");
+        // }
 
+        // The next example shows a function that accepts two integers as parameters. It adds them
+        // together and returns the result. Notice that the function specifies a return value of int at
+        // the beginning of the definition.
+
+        // int AddNumbers(int first, int second)
+        // {
+        //     int sum = first + second;
+        //     return sum;
+        // }
+
+        // In C#, because the language is so dedicated to the principles of Programming with Classes,
+        // the default case for all functions is to be methods, which must be called in the context of an
+        // object. (Again, more on this later!) But this has an important ramification for you now. If 
+        // you want to define "regular" standalone function, you need to use the static keyword. This 
+        // tells C# that you want your functions to be able to be called without any other context.
+
+        // To define a standalone function in C#, use the static keyword before the return type:
+
+        // static void DisplayMessage()
+        // {
+        //     Console.WriteLine("Hello world!");
+        // }
+
+        // static void DisplayPersonalMessage(string userName)
+        // {
+        //     Console.WriteLine($"Hello {userName}");
+        // }
+
+        // static int AddNumbers(int first, int second)
+        // {
+        //     int sum = first + second;
+        //     return sum;
+        // }
+
+        // Value Types and Reference Types
+
+        // In C#, all types fall into two main categories: value types and reference types. 
+        // Understanding the difference between these two different types is crucial to writing correct 
+        // code.
+
+        // Value Types
+
+        // C# Value types include: int, float, double, bool, char, enum, and struct.
+
+        // Value types are stored on the call stack for fast access. When value types are passed in to a
+        // function/method as a parameter, they are passed by-value (see below) by default.
+
+        // Note: For value types, changes to a copy do not change the original.
+
+        // int x;
+        // int y;
+        // x = 10;
+        // y = x;
+
+        // Reference Types
+
+        // C# reference types include: string, arrays (int[], double[], string[]), object, and class.
+
+        // int[] dataArray = new int[] {10, 20, 30};
+        // int[] dataReference = dataArray;
+
+        // In the above code, a new integer array is created and assigned to the variable dataArray. 
+        // This array is initialized with three values: 10, 20, and 30. The second line of code declares a 
+        // new integer array and assigns it to the original array. Since an array is a reference type, only 
+        // one copy of the array exists in memory and both dataArray and dataReference reference, 
+        // or point to, the same data in memory. This can be seen in the image below.
+
+        // dataReference[2] = 90;
+
+        // The code above changes the item at index 2 of dataReference to 90. As can be seen in the 
+        // image below, there is only one copy of the data in memory. Therefore the data referenced 
+        // by both dataArray and dataReference changes.
+
+        // Parameter Passing
+
+        // Pass By Value
+
+        //  static void TestPassByValue(int x)
+        // {
+        //     x = 99;
+        //     ...   
+        // }
+        // public static void Main(string[] args)
+        // {
+        //   int x = 10;
+        //   TestPassByValue(x);
+        //   Console.WriteLine(x);
+        //   ...
+        // }
+
+        // In the above code, the variable x is declared in Main() and initialized to 10. This variable is 
+        // then passed by value to the function TestPassByValue(). The parameter x is then changed 
+        // to the value 99. Changing parameter x to 99 with the called function does not change the 
+        // value of x in Main(). The output of printing x in the Main() function will be 10 because 
+        // changing the  value in the called function does not change the value in the calling function. 
+        // Please note the variable x must be initialized before it is passed as a parameter.
+
+        // Pass By Reference
 
         
-    }
+
+
+
+     }
 }
